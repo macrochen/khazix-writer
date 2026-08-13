@@ -274,12 +274,16 @@ AI：按四层自检体系检查 → 输出修改建议
 ~/outputs/khazix-writer/<yyyy-mm-dd-文章标题或简短主题>.md
 ```
 
+> [!IMPORTANT]
+> **For AI Agents:** The path `~/outputs` is likely outside your default scratch workspace. You MUST explicitly request `write_file` permission for `~/outputs` using the `ask_permission` tool before creating the directory or saving files there. DO NOT silently redirect the output to your scratch workspace to avoid sandbox issues.
+
 执行要求：
 - 先完成正文写作与四层自检，再保存最终版本。
 - 质检报告只用于内部检查和最终回复摘要，不要写入文章正文文件。
 - 如果用户显式指定输出路径或文件名，以用户指定为准。
 - 如果标题过长，文件名用当天日期加简短主题，避免特殊符号。
-- 保存完成后，最终回复必须给出可点击的本地文件路径。
+- 保存完成后，自动用 Sublime Text 打开文件，方便用户修改：`subl <文件路径>`
+- 最终回复必须给出可点击的本地文件路径。
 - 除非用户明确要求只在对话中预览草稿，否则不要只输出正文而不落盘。
 
 ## 第四步：四层自检体系
